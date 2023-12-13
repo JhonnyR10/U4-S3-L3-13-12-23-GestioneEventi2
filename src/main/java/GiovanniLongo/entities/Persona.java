@@ -34,10 +34,6 @@ public class Persona {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -80,10 +76,6 @@ public class Persona {
 
     public List<Partecipazione> getListaPartecipazioni() {
         return listaPartecipazioni;
-    }
-
-    public void setListaPartecipazioni(List<Partecipazione> listaPartecipazioni) {
-        this.listaPartecipazioni = listaPartecipazioni;
     }
 
     @Override

@@ -13,10 +13,10 @@ public class Partecipazione {
     @JoinColumn(name = "persona_id")
     private Persona persona;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "evento_id")
     private Evento evento;
-
+    @Enumerated(EnumType.STRING)
     private PartecipazioneStato stato;
 
     public Partecipazione() {
@@ -30,10 +30,6 @@ public class Partecipazione {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Persona getPersona() {

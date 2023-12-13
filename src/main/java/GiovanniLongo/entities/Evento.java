@@ -16,7 +16,7 @@ public class Evento {
     @Enumerated(EnumType.STRING)
     private EventType eventType;
     private int numeroMassimoPartecipanti;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "location_id")
     private Location location;
 
@@ -26,13 +26,13 @@ public class Evento {
     public Evento() {
     }
 
-    public Evento(String titolo, LocalDate dataEvento, String descrizione, EventType eventType, int numeroMassimoPartecipanti, long location) {
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, EventType eventType, int numeroMassimoPartecipanti, Location location) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.eventType = eventType;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
-
+        this.location = location;
     }
 
     public String getTitolo() {
@@ -41,6 +41,14 @@ public class Evento {
 
     public void setTitolo(String titolo) {
         this.titolo = titolo;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public List<Partecipazione> getPartecipazioni() {
+        return partecipazioni;
     }
 
     public LocalDate getDataEvento() {
